@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesappinternalstorage.R
@@ -17,21 +17,21 @@ class NotesAdapter(
     private val notes = mutableListOf<Note>()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(newNotes:List<Note>){
+    fun submitList(newNotes: List<Note>) {
         notes.clear()
         notes.addAll(newNotes)
         notifyDataSetChanged()
     }
 
     inner class NotesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val contentTextView = itemView.findViewById<TextView>(R.id.tvNote)
-        val btnEditNote = itemView.findViewById<Button>(R.id.btnEdit)
-        val btnDeleteNote = itemView.findViewById<Button>(R.id.btnDelete)
+        private val contentTextView = itemView.findViewById<TextView>(R.id.tvNote)
+        private val btnEditNote = itemView.findViewById<ImageView>(R.id.btnEdit)
+        private val btnDeleteNote = itemView.findViewById<ImageView>(R.id.btnDelete)
 
         fun bind(note: Note) {
             contentTextView.text = note.content
-            btnEditNote.setOnClickListener { onClickEditNote }
-            btnDeleteNote.setOnClickListener { onClickDeleteNote }
+            btnEditNote.setOnClickListener { onClickEditNote(note) }
+            btnDeleteNote.setOnClickListener { onClickDeleteNote(note) }
         }
     }
 

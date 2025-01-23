@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notesappinternalstorage.model.Note
 import com.example.notesappinternalstorage.model.NotesRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class NotesViewModel(private val repository: NotesRepository) : ViewModel() {
 
@@ -17,21 +15,19 @@ class NotesViewModel(private val repository: NotesRepository) : ViewModel() {
 
     init {
         loadNotes()
+
     }
 
-    fun loadNotes() {
+    private fun loadNotes() {
         viewModelScope.launch {
-            repository.getAllNotes().collect { noteList ->
-                _notes.value = noteList
-            }
+            val noteList = repository.getAllNotes()
+            _notes.value = noteList
         }
     }
 
-    fun saveNote(note: Note) {
-        viewModelScope.launch {
+    suspend fun saveNote(note: Note) {
             if (repository.saveNote(note)) {
                 loadNotes()
-            }
         }
     }
 
