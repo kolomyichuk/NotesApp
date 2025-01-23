@@ -18,12 +18,14 @@ class NotesRepository(private val context: Context) {
         }
     }
 
-    suspend fun saveNote(note: Note) {
-        try {
+    suspend fun saveNote(note: Note): Boolean {
+        return try {
             val file = File(notesDir, note.name)
             file.writeText(note.content)
+            true
         } catch (e: IOException) {
             e.printStackTrace()
+            false
         }
     }
 
@@ -34,8 +36,8 @@ class NotesRepository(private val context: Context) {
         emit(notes)
     }
 
-    fun deleteNote(fileName: String) {
+    fun deleteNote(fileName: String): Boolean {
         val file = File(notesDir, fileName)
-        file.delete()
+        return file.delete()
     }
 }

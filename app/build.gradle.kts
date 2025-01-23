@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.notesappinternalstorage"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.notesappinternalstorage"
@@ -39,7 +39,9 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
