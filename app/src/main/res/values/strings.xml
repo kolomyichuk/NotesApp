@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NotesAppInternalStorage</string>
+    <string name="input_text">input text</string>
+    <string name="add_note_to_list">Add note to list</string>
 </resources>
