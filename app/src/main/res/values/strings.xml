@@ -2,4 +2,7 @@
     <string name="app_name">NotesAppInternalStorage</string>
     <string name="input_text">input text</string>
     <string name="add_note_to_list">Add note to list</string>
+    <string name="test_text">Test text</string>
+    <string name="button_delete_the_note">Button delete the note</string>
+    <string name="button_edit_the_note">Button edit the note</string>
 </resources>
