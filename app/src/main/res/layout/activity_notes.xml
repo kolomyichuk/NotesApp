@@ -5,14 +5,16 @@
     android:layout_margin="8dp"
     android:orientation="vertical">
 
+    <!-- Button add the note -->
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
         android:text="@string/add_note_to_list" />
 
+    <!-- RecyclerView for displaying the list of notes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
         android:layout_width="match_parent"
